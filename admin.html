@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>管理画面</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" href="/img/favicon.ico" />
+  </head>
+  <body>
+    <div class="header_admin">
+      <div class="bardiv_admin">
+        <i class="fa-solid fa-coins"></i>
+        <span class="people">合計人数:</span>
+        <div id="people" class="value">0</div>
+        <span>人</span>
+      </div>
+    </div>
+
+    <div class="grid" id="grid">
+      <div class="div01 plus" id="div01">1</div>
+      <div class="div02 minus" id="div02">2</div>
+      <div class="div03 plus" id="div03">3</div>
+      <div class="div04 minus" id="div04">4</div>
+      <div class="div05 plus" id="div05">5</div>
+      <div class="div06 plus" id="div06">6</div>
+      <div class="div07 plus" id="div07">7</div>
+      <div class="div08 minus" id="div08">8</div>
+      <div class="div09 plus" id="div09">9</div>
+      <div class="div10 plus" id="div10">10</div>
+      <div class="div11 minus" id="div11">11</div>
+      <div class="div12 minus" id="div12">12</div>
+      <div class="div13 plus" id="div13">13</div>
+      <div class="div14 change" id="div14">14</div>
+      <div class="div15 active" id="div15">15</div>
+      <div class="div16 plus" id="div16">16</div>
+      <div class="div17 minus" id="div17">17</div>
+      <div class="div18 active" id="div18">18</div>
+      <div class="div19 minus" id="div19">19</div>
+      <div class="div20 plus" id="div20">20</div>
+      <div class="div21 plus" id="div21">21</div>
+      <div class="div22 minus" id="div22">22</div>
+      <div class="div23 stop" id="div23">23</div>
+      <div class="div24 stop" id="div24">24</div>
+      <div class="div25 plus" id="div25">25</div>
+      <div class="div26 plus" id="div26">26</div>
+      <div class="div27 minus" id="div27">27</div>
+      <div class="div28 plus" id="div28">28</div>
+      <div class="div29 plus" id="div29">29</div>
+      <div class="div30 minus" id="div30">30</div>
+      <div class="div31 plus" id="div31">31</div>
+      <div class="div32 plus" id="div32">32</div>
+      <div class="div33 stop" id="div33">33</div>
+      <div class="div34 stop" id="div34">34</div>
+      <div class="div35 plus" id="div35">35</div>
+      <div class="div36 minus" id="div36">36</div>
+      <div class="div37 active" id="div37">37</div>
+      <div class="div38 plus" id="div38">38</div>
+      <div class="div39 plus" id="div39">39</div>
+      <div class="div40 minus" id="div40">40</div>
+      <div class="div41 minus" id="div41">41</div>
+      <div class="div42 plus" id="div42">42</div>
+      <div class="div43 minus" id="div43">43</div>
+      <div class="div44 plus" id="div44">44</div>
+      <div class="div45 active" id="div45">45</div>
+      <div class="div46 stop" id="div46">46</div>
+      <div class="div47 stop" id="div47">47</div>
+      <div class="div48 change" id="div48">48</div>
+      <div class="div49 minus" id="div49">49</div>
+      <div class="div50 plus" id="div50">50</div>
+      <div class="div51 stop" id="div51">51</div>
+    </div>
+
+    <div id="peopleList"></div>
+    <!-- <dl id="peopleList">
+      <dt>
+        <h4>デバイスID</h4>
+        uuid
+      </dt>
+      <dd>
+        <h4>現在地</h4>
+        currentId
+      </dd>
+    </dl> -->
+    <!-- ここに一覧を表示 -->
+
+    <script>
+      function updateCurrentTags() {
+        $.get("https://ssapi.kanhina.com/items", function (itemsData) {
+          // 合計人数を表示
+          let totalPeople = itemsData.length;
+          $("#people").text(totalPeople); // 合計人数を表示
+
+          // 一覧を表示する要素をクリア
+          let peopleListHTML = "";
+          $("#peopleList").empty();
+
+          // 既にcurrentクラスがついているdivからcurrentクラスを一旦削除
+          $(".current").removeClass("current");
+
+          // 取得したデータに基づいて、currentIdを持つdiv要素に"current"クラスを追加し、一覧を作成
+          itemsData.forEach(function (item) {
+            let currentId = item.currentId; // JSONのcurrentIdを取得
+            let uuid = item.uuid; // JSONのuuidを取得
+            let divId = "#div" + currentId; // divIDの形式に合わせる
+            $(divId).addClass("current"); // 該当のdivにcurrentクラスを追加
+
+            peopleListHTML += `
+          <dl>
+            <dt><h4>セッションID</h4>${uuid}</dt>
+            <dd><h4>現在地</h4>${currentId}</dd>
+            <dd class="peopleList_delete"><button onclick="deleteItem('${uuid}')">× 削除</button></dd>
+          </dl>
+        `;
+          });
+
+          // 一覧をHTMLに反映
+          $("#peopleList").html(peopleListHTML);
+        });
+      }
+
+      function deleteItem(uuid) {
+        if (confirm("本当に削除しますか？")) {
+          $.ajax({
+            url: `https://ssapi.kanhina.com/items/${uuid}`,
+            type: "DELETE",
+            success: function (result) {
+              alert("削除が成功しました");
+              updateCurrentTags();
+            },
+            error: function (xhr, status, error) {
+              alert("削除に失敗しました: " + error);
+            }
+          });
+        }
+      }
+
+      // 10秒ごとに更新を確認する
+      setInterval(updateCurrentTags, 10000);
+
+      // 初回実行
+      updateCurrentTags();
+    </script>
+  </body>
+</html>

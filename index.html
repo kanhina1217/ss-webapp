@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文化祭アプリ</title>
+
+    <link rel="stylesheet" href="ress.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/f281f43fd2.js" crossorigin="anonymous"></script>
+
+    <link rel="icon" href="/img/favicon.ico">
+</head>
+<body>
+    <ul class="header">
+        <li>
+            <div class="bardiv">
+                
+                <button class="club_button" data-trigger="btn" data-modal="001">
+                        部活動:
+                        <div id="club">選択してください▶</div>    
+                </button>
+            </div>
+            
+        </li>
+        <li>
+            <div class="bardiv">
+                <i class="fa-solid fa-coins"></i>
+                <span class="pt">RPポイント:</span>
+                <div id="pt" class="value">5</div>
+                <span>万</span>
+            </div>
+        </li>
+        
+        <li>
+            <div class="bardiv">
+                <i class="fa-solid fa-copy"></i>
+                <p class="trust">信頼カード枚数:<div id="trust" class="value">1</div>枚</p>
+            </div>
+        </li>
+        <li class="gear">
+            <a data-trigger="btn" data-modal="003">
+                <i class="fa-solid fa-gear"></i>
+            </a>
+        </li>
+    </ul>
+
+    <!-- modal start -->
+    <div class="modal" data-modal="box">
+        <div class="modal__bg" data-modal="bg"></div>
+        <div class="modal__inner" data-modal="inner">
+
+        <!-- modal001 start -->
+        <div class="modal-card" data-trigger="item" data-modal="modal001">
+            <div class="modal-card__close" data-modal="close">
+            <div class="modal-card__closeBtn"></div>
+            </div>
+            <p class="modal-card__heading">部活動を登録します</p>
+            <div class="forms">
+                <select id="select_club" required>
+                    <option value="" hidden disabled selected></option>
+                    <option value="ロボット探究部">ロボット探究部</option>
+                    <option value="天文部">天文部</option>
+                    <option value="陸上競技部">陸上競技部</option>
+                    <option value="バドミントン部">バドミントン部</option>
+                </select>
+            </div>
+            <button id="club_submit_button" class="submit_button" data-modal="close">設定</button>
+        </div>
+        <!-- modal001 end -->
+
+        <!-- modal002 start -->
+        <div class="modal-card" data-trigger="item" data-modal="modal002">
+            <div class="modal-card__close" data-modal="close">
+            <div class="modal-card__closeBtn"></div>
+            </div>
+
+            <p class="modal-card__heading">出目を入力してください</p>
+            <div class="forms">
+                <select id="select_dice" required>
+                    <option value="null" hidden disabled selected></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="0" disabled>0</option>
+                </select>
+            </div>
+            <button id="dice_submit_button" class="submit_button" data-modal="close">指定</button>
+        </div>
+        <!-- modal002 end -->
+
+        <!-- modal003 start -->
+        <div class="modal-card" data-trigger="item" data-modal="modal003">
+            <div class="modal-card__close" data-modal="close">
+            <div class="modal-card__closeBtn"></div>
+            </div>
+
+            <p class="modal-card__heading">オプション</p>
+            <button id="value_change_button" class="button" data-modal="004" data-trigger="btn">値変更 ▶</button>
+            <!-- <button id="deviceId_button" class="button" data-modal="007" data-trigger="btn">デバイスIDを指定 ▶</button> -->
+            <button id="club_change_button" class="button" data-modal="close">部活動の初期化</button>
+            <button id="clear_all_button" class="button" data-modal="close">すべて初期化</button>
+        </div>
+        <!-- modal003 end -->
+
+        <!-- modal004 start -->
+        <div class="modal-card" data-trigger="item" data-modal="modal004">
+            <div class="modal-card__close" data-modal="close">
+            <div class="modal-card__closeBtn"></div>
+            </div>
+            <p class="modal-card__heading">値を変更します</p>
+            <label>現在の位置</label>
+            <input id="reset_current" type="number" min="1" max="51" class="option_input">
+
+            <label>RPポイント</label>
+            <input id="reset_pt" type="number" step="10000" class="option_input">
+            
+            <label>信頼カード枚数</label>
+            <input id="reset_trust" type="number" class="option_input">
+
+            <label>部活動</label>
+            <select id="reset_select_club" required class="option_select">
+                <option value="" hidden disabled selected>部活動を修正する</option>
+                <option value="ロボット探究部">ロボット探究部</option>
+                <option value="天文部">天文部</option>
+                <option value="陸上競技部">陸上競技部</option>
+                <option value="バドミントン部">バドミントン部</option>
+            </select>
+            <button id="apply_btn" class="button tekiyo" data-modal="close">適用</button>
+        </div>
+        <!-- modal004 end -->
+
+        <!-- modal005 start -->
+        <div class="modal-card" data-trigger="item" data-modal="modal005">
+            <div class="modal-card__close" data-modal="close">
+            <div class="modal-card__closeBtn"></div>
+            </div>
+            <p class="modal-card__heading">部活動マスがありました。</p>
+            <div class="modal_point" id="modal_point"></div>
+            <h2 class="modal_title" id="modal_title"></h2>
+            <div class="modal_text" id="modal_txt"></div>
+        </div>
+        <!-- modal005 end -->
+
+        <!-- modal006 start -->
+        <div class="modal-card" data-trigger="item" data-modal="modal006">
+            <div class="modal-card__close" data-modal="close">
+            <div class="modal-card__closeBtn"></div>
+            </div>
+            <p class="modal-card__heading">進級しました!</p>
+            <div class="modal_point" id="up_modal_point"></div>
+            <h2 class="modal_title" id="up_modal_title"></h2>
+            <h2 class="modal_title">信頼カードを購入します。</h2>
+            <div class="forms">
+                <select id="buy_trust" required>
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+            </div>
+            <div class="modal_text" id="price"></div>
+            <button id="buy_trust_button" class="submit_button" data-modal="close">購入</button>
+        </div>
+        <!-- modal006 end -->
+
+        <!-- modal007 start -->
+        <!-- <div class="modal-card" data-trigger="item" data-modal="modal007">
+            <div class="modal-card__close" data-modal="close">
+            <div class="modal-card__closeBtn"></div>
+            </div>
+            <p class="modal-card__heading">デバイスIDを指定します</p>
+            <label>デバイスID</label>
+            <input id="deviceId" type="number" class="option_input">
+            <label>パスワード</label>
+            <input id="password" type="password" class="option_input" placeholder="パスワード">
+            <button id="deviceId_apply_btn" class="button tekiyo" data-modal="close">適用</button>
+        </div> -->
+        <!-- modal007 end -->
+
+        <!-- modal008 start -->
+        <div class="modal-card" data-trigger="item" data-modal="modal008">
+            <div class="modal-card__close" data-modal="close">
+            <div class="modal-card__closeBtn"></div>
+            </div>
+            <p class="modal-card__heading">スロットにチャレンジ</p>
+            <label>賭け金</label>
+            <input id="slot_pt" type="number" class="option_input">
+            <label>最大の倍率</label>
+            <input id="slot_times" type="number" class="option_input">
+            <button id="slot_apply_btn" class="button tekiyo" data-modal="close">決定</button>
+        </div>
+        <!-- modal008 end -->
+
+        </div>
+    </div>
+    <!-- modal end -->
+
+    <button class="submit_button" id="slot"  data-trigger="btn" data-modal="008" style="display: none; margin: 20px auto 0;">スロットチャレンジ</button>
+
+    <div class="grid" id="grid">
+        <div class="div01 plus current" id="div01">1</div>
+        <div class="div02 minus" id="div02">2</div>
+        <div class="div03 plus" id="div03">3</div>
+        <div class="div04 minus" id="div04">4</div>
+        <div class="div05 plus" id="div05">5</div>
+        <div class="div06 plus" id="div06">6</div>
+        <div class="div07 plus" id="div07">7</div>
+        <div class="div08 minus" id="div08">8</div>
+        <div class="div09 plus" id="div09">9</div>
+        <div class="div10 plus" id="div10">10</div>
+        <div class="div11 minus can_trust" id="div11">11</div>
+        <div class="div12 minus" id="div12">12</div>
+        <div class="div13 minus" id="div13">13</div>
+        <div class="div14 change" id="div14">14</div>
+        <div class="div15 active" id="div15">15</div>
+        <div class="div16 plus" id="div16">16</div>
+        <div class="div17 minus" id="div17">17</div>
+        <div class="div18 active" id="div18">18</div>
+        <div class="div19 minus" id="div19">19</div>
+        <div class="div20 change" id="div20">20</div>
+        <div class="div21 plus" id="div21">21</div>
+        <div class="div22 minus can_trust" id="div22">22</div>
+        <div class="div23 stop" id="div23">23</div>
+        <div class="div24 stop" id="div24">24</div>
+        <div class="div25 plus" id="div25">25</div>
+        <div class="div26 plus" id="div26">26</div>
+        <div class="div27 minus can_trust" id="div27">27</div>
+        <div class="div28 plus" id="div28">28</div>
+        <div class="div29 plus" id="div29">29</div>
+        <div class="div30 minus" id="div30">30</div>
+        <div class="div31 plus" id="div31">31</div>
+        <div class="div32 plus" id="div32">32</div>
+        <div class="div33 stop" id="div33">33</div>
+        <div class="div34 stop" id="div34">34</div>
+        <div class="div35 plus" id="div35">35</div>
+        <div class="div36 minus can_trust" id="div36">36</div>
+        <div class="div37 active" id="div37">37</div>
+        <div class="div38 plus" id="div38">38</div>
+        <div class="div39 plus" id="div39">39</div>
+        <div class="div40 minus" id="div40">40</div>
+        <div class="div41 minus" id="div41">41</div>
+        <div class="div42 plus" id="div42">42</div>
+        <div class="div43 minus can_trust" id="div43">43</div>
+        <div class="div44 plus" id="div44">44</div>
+        <div class="div45 active" id="div45">45</div>
+        <div class="div46 stop" id="div46">46</div>
+        <div class="div47 stop" id="div47">47</div>
+        <div class="div48 change" id="div48">48</div>
+        <div class="div49 minus can_trust" id="div49">49</div>
+        <div class="div50 plus" id="div50">50</div>
+        <div class="div51 stop" id="div51">51</div>
+
+
+        <div class="dice_button">
+            <button data-trigger="btn" data-modal="002">
+                <img src="img/dice.png">ルーレット入力</button>
+
+        </div>
+
+    </div>
+
+    <div class="cap">
+        <div class="cap_point" id="cap_point"></div>
+        <h2 class="cap_title" id="cap_title"></h2>
+        <div class="cap_text" id="cap_txt"></div>
+        <ul>
+        <li><button class="button" id="cap_O">成功</button></li>
+        <li><button class="button" id="cap_X">失敗</button></li>
+        </ul>
+        <ul>
+        <li><button class="button" id="dice_1" style="display: none; width: 4em;">1</button></li>
+        <li><button class="button" id="dice_2" style="display: none; width: 4em;">2</button></li>
+        <li><button class="button" id="dice_3" style="display: none; width: 4em;">3</button></li>    
+        <li><button class="button" id="dice_4" style="display: none; width: 4em;">4</button></li>
+        <li><button class="button" id="dice_5" style="display: none; width: 4em;">5</button></li>
+        <li><button class="button" id="dice_6" style="display: none; width: 4em;">6</button></li>
+        </ul>
+        <button class="cap_card" id="cap_usetrust">信頼カードを使う</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="index.js"></script> -->
+</body>
+</html>

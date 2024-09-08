@@ -1,0 +1,1237 @@
+/*! destyle.css v4.0.1 | MIT License | https://github.com/nicolas-cusan/destyle.css */
+
+/* Reset box-model and set borders */
+/* ============================================ */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
+  min-width: 0;
+}
+
+/* Document */
+/* ============================================ */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ * 3. Remove gray overlay on links for iOS.
+ */
+
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-tap-highlight-color: transparent;
+  /* 3*/
+}
+
+/* Sections */
+/* ============================================ */
+
+/**
+ * Remove the margin in all browsers.
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+
+main {
+  display: block;
+}
+
+/* Vertical rhythm */
+/* ============================================ */
+
+p,
+table,
+blockquote,
+address,
+pre,
+iframe,
+form,
+figure,
+dl {
+  margin: 0;
+}
+
+/* Headings */
+/* ============================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+/* Lists (enumeration) */
+/* ============================================ */
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Lists (definition) */
+/* ============================================ */
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}
+
+/* Grouping content */
+/* ============================================ */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+  border-top-width: 1px;
+  margin: 0;
+  clear: both;
+  color: inherit;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: inherit;
+  /* 2 */
+}
+
+address {
+  font-style: inherit;
+}
+
+/* Text-level semantics */
+/* ============================================ */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: inherit;
+  /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Replaced content */
+/* ============================================ */
+
+/**
+ * Prevent vertical alignment issues.
+ */
+
+svg,
+img,
+embed,
+object,
+iframe {
+  vertical-align: bottom;
+}
+
+/* Forms */
+/* ============================================ */
+
+/**
+ * Reset form fields to make them styleable.
+ * 1. Make form elements stylable across systems iOS especially.
+ * 2. Inherit text-transform from parent.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  -webkit-appearance: none;
+  /* 1 */
+  appearance: none;
+  vertical-align: middle;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  text-align: inherit;
+  text-transform: inherit;
+  /* 2 */
+}
+
+/**
+ * Correct cursors for clickable elements.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  cursor: pointer;
+}
+
+button:disabled,
+[type="button"]:disabled,
+[type="reset"]:disabled,
+[type="submit"]:disabled {
+  cursor: default;
+}
+
+/**
+ * Improve outlines for Firefox and unify style with input elements & buttons.
+ */
+
+:-moz-focusring {
+  outline: auto;
+}
+
+select:disabled {
+  opacity: inherit;
+}
+
+/**
+ * Remove padding
+ */
+
+option {
+  padding: 0;
+}
+
+/**
+ * Reset to invisible
+ */
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  outline-offset: -2px;
+  /* 1 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Fix font inheritance.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/**
+ * Fix appearance for Firefox
+ */
+[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/**
+ * Clickable labels
+ */
+
+label[for] {
+  cursor: pointer;
+}
+
+/* Interactive */
+/* ============================================ */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/*
+ * Remove outline for editable content.
+ */
+
+[contenteditable]:focus {
+  outline: auto;
+}
+
+/* Tables */
+/* ============================================ */
+
+/**
+1. Correct table border color inheritance in all Chrome and Safari.
+*/
+
+table {
+  border-color: inherit;
+  /* 1 */
+  border-collapse: collapse;
+}
+
+caption {
+  text-align: left;
+}
+
+td,
+th {
+  vertical-align: top;
+  padding: 0;
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+}
+
+body {
+  font-family: “Hiragino Sans”, sans-serif;
+}
+
+/* ==========================
+  マス目
+========================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding: 20px;
+}
+
+.div01,
+.div02,
+.div03,
+.div04,
+.div05,
+.div06,
+.div07,
+.div08,
+.div09,
+.div10,
+.div11,
+.div12,
+.div13,
+.div14,
+.div15,
+.div16,
+.div17,
+.div18,
+.div19,
+.div20,
+.div21,
+.div22,
+.div23,
+.div24,
+.div25,
+.div26,
+.div27,
+.div28,
+.div29,
+.div30,
+.div31,
+.div32,
+.div33,
+.div34,
+.div35,
+.div36,
+.div37,
+.div38,
+.div39,
+.div40,
+.div41,
+.div42,
+.div43,
+.div44,
+.div45,
+.div46,
+.div47,
+.div48,
+.div49,
+.div50,
+.div51 {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.current {
+  border: 5px solid #747474;
+}
+
+.change {
+  background-color: #fff861;
+}
+
+.active {
+  background-color: #a3ff83;
+}
+
+.stop {
+  background-color: #d2aeff;
+}
+
+.plus {
+  background-color: #ffb4b4;
+}
+
+.minus {
+  background-color: #8fe6eb;
+}
+
+.can_trust {
+  font-weight: bold;
+}
+
+.div01 {
+  grid-area: 10 / 15 / 11 / 16;
+}
+
+.div02 {
+  grid-area: 10 / 14 / 11 / 15;
+}
+
+.div03 {
+  grid-area: 10 / 13 / 11 / 14;
+}
+
+.div04 {
+  grid-area: 10 / 12 / 11 / 13;
+}
+
+.div05 {
+  grid-area: 10 / 11 / 11 / 12;
+}
+
+.div06 {
+  grid-area: 10 / 10 / 11 / 11;
+}
+
+.div07 {
+  grid-area: 10 / 9 / 11 / 10;
+}
+
+.div08 {
+  grid-area: 10 / 8 / 11 / 9;
+}
+
+.div09 {
+  grid-area: 10 / 7 / 11 / 8;
+}
+
+.div10 {
+  grid-area: 10 / 6 / 11 / 7;
+}
+
+.div11 {
+  grid-area: 10 / 5 / 11 / 6;
+}
+
+.div12 {
+  grid-area: 10 / 4 / 11 / 5;
+}
+
+.div13 {
+  grid-area: 10 / 3 / 11 / 4;
+}
+
+.div14 {
+  grid-area: 10 / 2 / 11 / 3;
+}
+
+.div15 {
+  grid-area: 10 / 1 / 11 / 2;
+}
+
+.div16 {
+  grid-area: 9 / 1 / 10 / 2;
+}
+
+.div17 {
+  grid-area: 8 / 1 / 9 / 2;
+}
+
+.div18 {
+  grid-area: 7 / 1 / 8 / 2;
+}
+
+.div19 {
+  grid-area: 7 / 2 / 8 / 3;
+}
+
+.div20 {
+  grid-area: 7 / 3 / 8 / 4;
+}
+
+.div21 {
+  grid-area: 7 / 4 / 8 / 5;
+}
+
+.div22 {
+  grid-area: 7 / 5 / 8 / 6;
+}
+
+.div23 {
+  grid-area: 7 / 6 / 8 / 7;
+}
+
+.div24 {
+  grid-area: 7 / 7 / 8 / 8;
+}
+
+.div25 {
+  grid-area: 7 / 8 / 8 / 9;
+}
+
+.div26 {
+  grid-area: 7 / 9 / 8 / 10;
+}
+
+.div27 {
+  grid-area: 7 / 10 / 8 / 11;
+}
+
+.div28 {
+  grid-area: 7 / 11 / 8 / 12;
+}
+
+.div29 {
+  grid-area: 7 / 12 / 8 / 13;
+}
+
+.div30 {
+  grid-area: 7 / 13 / 8 / 14;
+}
+
+.div31 {
+  grid-area: 7 / 14 / 8 / 15;
+}
+
+.div32 {
+  grid-area: 7 / 15 / 8 / 16;
+}
+
+.div33 {
+  grid-area: 6 / 16 / 7 / 17;
+}
+
+.div34 {
+  grid-area: 5 / 16 / 6 / 17;
+}
+
+.div35 {
+  grid-area: 4 / 16 / 5 / 17;
+}
+
+.div36 {
+  grid-area: 3 / 16 / 4 / 17;
+}
+
+.div37 {
+  grid-area: 2 / 16 / 3 / 17;
+}
+
+.div38 {
+  grid-area: 1 / 15 / 2 / 16;
+}
+
+.div39 {
+  grid-area: 1 / 14 / 2 / 15;
+}
+
+.div40 {
+  grid-area: 1 / 13 / 2 / 14;
+}
+
+.div41 {
+  grid-area: 1 / 12 / 2 / 13;
+}
+
+.div42 {
+  grid-area: 1 / 11 / 2 / 12;
+}
+
+.div43 {
+  grid-area: 1 / 10 / 2 / 11;
+}
+
+.div44 {
+  grid-area: 1 / 9 / 2 / 10;
+}
+
+.div45 {
+  grid-area: 1 / 8 / 2 / 9;
+}
+
+.div46 {
+  grid-area: 1 / 7 / 2 / 8;
+}
+
+.div47 {
+  grid-area: 1 / 6 / 2 / 7;
+}
+
+.div48 {
+  grid-area: 1 / 5 / 2 / 6;
+}
+
+.div49 {
+  grid-area: 1 / 4 / 2 / 5;
+}
+
+.div50 {
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.div51 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+/* さいころエリア */
+.dice_button {
+  grid-area: 3 / 2 / 6 / 5;
+
+  border: 1px solid #999;
+  border-radius: 20px;
+  padding: 15px 10px 0;
+
+  text-align: center;
+  font-size: 80%;
+  font-weight: bold;
+  /* aspect-ratio: none; */
+}
+
+.dice_button img {
+  display: block;
+  padding-bottom: 10px;
+  width: 80%;
+  height: auto;
+  margin: auto;
+}
+
+/* ==========================
+  ボタン
+========================== */
+.button {
+  background: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  width: 20em;
+  text-align: center;
+}
+
+.tekiyo {
+  background-color: #747474;
+  border-radius: 50px;
+  width: 10em;
+  color: #fff;
+}
+
+.club_button {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.submit_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  max-width: 300px;
+  border-radius: 50px;
+  height: 64px;
+  padding: 8px 24px;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  overflow-wrap: anywhere;
+  background-color: #747474;
+  border: 2px solid #747474;
+}
+
+.disabled_button {
+  background-color: transparent;
+  border: #000 solid 2px;
+  color: #000;
+}
+
+/* ==========================
+  モーダル（ポップアップ）
+========================== */
+.modal__bg {
+  position: fixed;
+  z-index: 10009;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  /* 初期状態で非表示 */
+  visibility: hidden;
+  /* 初期状態で非表示 */
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.modal__bg.is-active {
+  opacity: 1;
+  /* 非表示を解除 */
+  visibility: visible;
+  /* 非表示を解除 */
+}
+
+.modal__inner {
+  position: fixed;
+  z-index: 10010;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 0 10px;
+  opacity: 0;
+  /* 初期状態で非表示 */
+  visibility: hidden;
+  /* 初期状態で非表示 */
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.modal__inner.is-active {
+  opacity: 1;
+  /* 非表示を解除 */
+  visibility: visible;
+  /* 非表示を解除 */
+}
+
+.modal-card {
+  width: 70%;
+  min-height: 290px;
+  background: #fff;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  position: absolute;
+  z-index: 1;
+  transform: translate3d(0, 48px, 0);
+  opacity: 0;
+  /* 初期状態で非表示 */
+  visibility: hidden;
+  /* 初期状態で非表示 */
+  transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.3s ease-in-out;
+}
+
+.modal-card.is-active {
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  /* 非表示を解除 */
+  visibility: visible;
+  /* 非表示を解除 */
+  transform: translate3d(0, 0, 0);
+}
+
+.modal-card__heading {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.modal-card__text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.modal-card__close {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 16px;
+  right: 13px;
+}
+
+.modal-card__close::before,
+.modal-card__close::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 3px;
+  background: #000;
+  cursor: pointer;
+}
+
+.modal-card__close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.modal-card__close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.modal_point {
+  position: absolute;
+  right: 30px;
+  top: 80px;
+  background-color: #d9d9d9;
+  border-radius: 50px;
+  padding: 15px;
+  font-weight: bold;
+  border: solid 5px red;
+}
+
+.modal_title {
+  font-size: 1.6em;
+  font-weight: bold;
+  padding: 0 0 0.5em;
+}
+
+.modal_text {
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* ==========================
+  selectフォーム
+========================== */
+.forms {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 2em auto;
+  border: 1px solid #bbbbbb;
+  border-radius: 2px;
+}
+
+/*プルダウンの三角を設定*/
+.forms::before {
+  position: absolute;
+  right: 15px;
+  content: "";
+  width: 16px;
+  height: 8px;
+  background: #666666;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.forms select {
+  width: 20em;
+  padding: 20px 45px 20px 20px;
+  color: #666666;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  /*テキストがオーバーしたら'...'で省略*/
+  z-index: 1;
+  /* 標準のスタイルを無効にする */
+  border: none;
+  appearance: none;
+  outline: none;
+  background: transparent;
+}
+
+/* 設定リセット入力フォーム */
+.option_input {
+  border: 1px solid #747474;
+  padding: 15px;
+  margin: -20px auto 10px;
+  width: 15em;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.option_select {
+  background-color: #f2f2f2;
+  padding: 15px;
+  margin: -20px auto 10px;
+  width: 15em;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* ==========================
+  Header
+========================== */
+.header {
+  color: #ffffff;
+  background-color: #747474;
+  width: 100%;
+  display: flex;
+  list-style: none;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.header_admin {
+  color: #ffffff;
+  background-color: #747474;
+  width: auto;
+  list-style: none;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 20px 50px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header li {
+  padding: 10px 0;
+  padding-right: 5px;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+.header .gear {
+  padding: 0;
+  border: none;
+}
+
+.header .gear .fa-solid {
+  font-size: 1.3em;
+}
+
+.header .gear i {
+  display: block;
+}
+
+#pt,
+#trust,
+#people {
+  background-color: #d9d9d9;
+  width: 50px;
+  height: 30px;
+  margin: 0 10px;
+}
+.header_admin #people {
+  background-color: #d9d9d9;
+  width: 2em;
+  height: 1.5em;
+  margin: 0 0.5em;
+}
+
+.pt,
+.trust,
+.people {
+  padding-left: 5px;
+}
+
+#club {
+  width: auto;
+  height: 30px;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.bardiv {
+  display: flex;
+  align-items: center;
+}
+.bardiv_admin {
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.bardiv .fa-solid {
+  font-size: 1.5em;
+}
+.bardiv_admin .fa-solid {
+  font-size: 1.5em;
+}
+
+.value {
+  color: #000;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bardiv_admin .value {
+  color: #000;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================
+  cap
+========================== */
+.cap {
+  width: 95%;
+  max-height: 300px;
+  margin: 30px auto;
+  padding: 1.5em;
+  background-color: #d9d9d9;
+  text-align: center;
+  border-radius: 5px;
+  position: relative;
+}
+
+.cap .cap_point {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  background-color: #fff;
+  border-radius: 50px;
+  padding: 15px;
+  font-weight: bold;
+  border: solid 5px red;
+}
+
+.cap h2 {
+  font-size: 1.6em;
+  font-weight: bold;
+  padding: 0 0 0.5em;
+}
+
+.cap .cap_text {
+  text-align: left;
+  line-height: 1.5;
+}
+
+.cap .button {
+  width: 10em;
+  margin: 1em auto;
+  font-weight: bold;
+}
+
+.cap .dice_button {
+  margin: 1em auto;
+  font-weight: bold;
+}
+
+.cap ul {
+  background-color: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.cap .cap_card {
+  background-color: #f2f2f2;
+  padding: 15px;
+  margin: 10px auto 10px;
+  width: 15em;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* ぴーぽーりすと */
+#peopleList dl {
+  width: auto;
+  margin: 1em 2em;
+  border-bottom: 1px solid #747474;
+  padding-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  gap: 0;
+}
+#peopleList dl dt,
+#peopleList dl dd {
+  font-size: 1.5em;
+  line-height: 1;
+  color: #000;
+  padding-right: 1em;
+}
+#peopleList dl dt h4,
+#peopleList dl dd h4 {
+  display: inline-block;
+  background-color: #999;
+  padding: 0.5em;
+  font-size: 0.8m;
+  line-height: 1;
+  color: #fff;
+  margin: 0 1em 0 0;
+}
+#peopleList dl dt {
+  font-weight: normal;
+}
+#peopleList dl dd {
+  font-weight: bold;
+}
+#peopleList dl dd.peopleList_delete {
+  background-color: #fff;
+  padding: 0.5em 1em;
+  margin: 0 0 0 2em;
+  border: 2px solid #747474;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 1.3em;
+  line-height: 1;
+}
